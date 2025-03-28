@@ -292,18 +292,18 @@ function App() {
         <button className="ok-button" onClick={handleConversion}>OK</button>
         
         <div className="results">
-          {aayam && <p>ఆయామం: {aayam}</p>}
-          {yards && <p>స్క్వేర్ యార్డ్స్: {yards}</p>}
-          {feets && <p>స్క్వేర్ ఫీట్స్: {feets}</p>}
-          {danam && <p>దానం: {danam}</p>}
-          {runam && <p>రూణం: {runam}</p>}
-          {years && <p>సంవత్సరం: {years}</p>}
-          {week && <p>వారం: {week}</p>}
-          {tidhi && <p>తిధి: {tidhi}</p>}
-          {star && <p>నక్షత్రం: {star}</p>}
-          {dikpathi && <p>దిక్పతి: {dikpathi}</p>}
-          {amsha && <p>అంశ: {amsha}</p>}
-          {yogam && <p>యోగం: {yogam}</p>}
+          {aayam && <p><b>ఆయామం:</b> {aayam}</p>}
+          {yards && <p><b>స్క్వేర్ యార్డ్స్:</b> {yards}</p>}
+          {feets && <p><b>స్క్వేర్ ఫీట్స్:</b> {feets}</p>}
+          {danam && <p><b>దానం: </b>{danam}</p>}
+          {runam && <p><b>రూణం:</b> {runam}</p>}
+          {years && <p><b>సంవత్సరం:</b> {years}</p>}
+          {week && <p><b>వారం:</b> {week}</p>}
+          {tidhi && <p><b>తిధి: </b>{tidhi}</p>}
+          {star && <p><b>నక్షత్రం:</b> {star}</p>}
+          {dikpathi && <p><b>దిక్పతి:</b> {dikpathi}</p>}
+          {amsha && <p><b>అంశ:</b> {amsha}</p>}
+          {yogam && <p><b>యోగం:</b> {yogam}</p>}
         </div>
       </div>
     </div>
