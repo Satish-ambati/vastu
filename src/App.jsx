@@ -295,8 +295,8 @@ function App() {
           {aayam && <p><b>ఆయామం:</b> {aayam}</p>}
           {yards && <p><b>స్క్వేర్ గజాలు:</b> {yards}</p>}
           {feets && <p><b>స్క్వేర్ అడుగులు:</b> {feets}</p>}
-          {danam && <p><b>దానం: </b>{danam}</p>}
-          {runam && <p><b>రూణం:</b> {runam}</p>}
+          {danam && <p><b>ధనం: </b>{danam}</p>}
+          {runam && <p><b>ఋణం:</b> {runam}</p>}
           {years && <p><b>సంవత్సరం:</b> {years}</p>}
           {week && <p><b>వారం:</b> {week}</p>}
           {tidhi && <p><b>తిధి: </b>{tidhi}</p>}
