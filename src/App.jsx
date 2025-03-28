@@ -21,7 +21,13 @@ function App() {
   const [dikpathi, setDikpathi] = useState("");
   const [amsha, setAmsha] = useState("");
   const [yogam, setYogam] = useState("");
-
+  const [karanam,setKaranam] = useState(null);
+  const [graham,setGraham] = useState(null);
+  const [raasi,setRaasi] = useState(null);
+  const [tatwam,setTatwam] = useState(null);
+  const [jati,setJati] = useState(null);
+  const [yogini,setYogini] = useState(null);
+  const [kala,setKala] = useState(null);
   const am = {
     1: "ద్వాజాయం (తూర్పు-E)",
     2: "ధూమాయం (ఆగ్నేయం-SE)",
@@ -158,6 +164,67 @@ function App() {
     26: "ఉత్తరాభాద్ర",
     27: "రేవతి"
   };
+  const km = {
+    1: "బవ - మంచిది",
+    2: "బాల - మంచిది",
+    3: "కౌలవ - మంచిది",
+    4: "తైతుల - మంచిది",
+    5: "గర - మంచిది",
+    6: "వాణిజ - మంచిది",
+    7: "విష్టి (భద్ర) - చెడు",
+    8: "శకుని - చెడు",
+    9: "చతుష్పద - చెడు",
+    10: "నాగ - చెడు",
+    11: "కింస్తుగ్న - చెడు"
+};
+const gh = {
+  1: "రవి (సూర్యుడు) - చెడ్డది",
+  2: "చంద్ర (చంద్రుడు) - మంచిది",
+  3: "కుజ (అంగారకుడు) - మిశ్రమం",
+  4: "బుధ (బుధుడు) - మంచిది",
+  5: "గురు (బృహస్పతి) - మంచిది",
+  6: "శుక్ర (శుక్రుడు) - మంచిది",
+  7: "శని (శనేశ్వరుడు) - చెడ్డది",
+  8: "రాహు (రాహు) - చెడ్డది",
+  9: "కేతు (కేతు) - చెడ్డది"
+};
+const rs = {
+  1: "మేషం",
+  2: "వృషభం",
+  3: "మిథునం",
+  4: "కర్కాటకం",
+  5: "సింహం",
+  6: "కన్యా",
+  7: "తులా",
+  8: "వృశ్చికం",
+  9: "ధనుస్సు",
+  10: "మకరం",
+  11: "కుంభం",
+  12: "మీనం"
+};
+const tt = {
+  1: "భూత తత్త్వం- మంచిది",
+  2: "జల తత్త్వం- మంచిది",
+  3: "అగ్ని తత్త్వం- చెడ్డది",
+  4: "వాయు తత్త్వం- మంచిది",
+  5: "ఆకాశ తత్త్వం- చెడ్డది"
+};
+const jt = {
+  1: "బ్రహ్మచారి- మంచిది",
+  2: "క్షత్రియ- మంచిది",
+  3: "వైశ్య- మంచిది",
+  4: "శూద్ర - చెడ్డది"
+};
+const ygm = {
+  1: "మంచిది - ధన లాభం",
+  2: "చెడ్డది - ధన నాశనం",
+  3: "మంచిది - ధాన్య లాభం",
+  4: "చెడ్డది - ధన హాని",
+  5: "మంచిది - పుత్ర లాభం",
+  6: "చెడ్డది - పుత్ర నాశనం",
+  7: "మంచిది - ఐశ్వర్య ప్రదం",
+  8: "చెడ్డది - మరణ భయం"
+};
 
   function conversion(feet, inches) {
     if (isNaN(feet) || isNaN(inches) || feet === "" || inches === "") return "0.00";
@@ -188,8 +255,6 @@ function App() {
     
     const yardsValue = Math.floor(area / 9);
     setYards(yardsValue);
-    
-    // Calculate all results immediately using the current values
     calculateResults(yardsValue, area);
   };
 
@@ -229,10 +294,29 @@ function App() {
     let num7 = (yardsValue * 6) % 9;
     if (num7 === 0) num7 = 9;
     setAmsha(as[num7]);
+    setGraham(gh[num7]);
     
     let num8 = (yardsValue * 4) % 27;
     if (num8 === 0) num8 = 27;
     setYogam(yg[num8]);
+    let num9 = (yardsValue * 3) % 8;
+    if (num9 === 0) num9 = 8;
+    setYogini(ygm[num9]);
+    let num10 = (yardsValue * 5) % 7;
+    if (num10 === 0) num10 = 7;
+    setKaranam(km[num10])
+    let num11 = (yardsValue * 9) % 12;
+    if (num11 === 0) num11 = 12;
+    setRaasi(rs[num11]);
+    let num12 = (yardsValue * 3) % 5;
+    if (num12 === 0) num12 = 5;
+    setTatwam(tt[num12]);
+    let num13 = (yardsValue * 9) % 4;
+    if (num13 === 0) num13 = 4; 
+    setJati(jt[num13]);
+    let num14 = (yardsValue * 12) % 16;
+    if (num14 === 0) num14 = 16;
+    setKala(num14);
   }
 
   return (
@@ -244,7 +328,7 @@ function App() {
         </div>
 
         <div className="input-group">
-          <label>పొదువు:</label>
+          <label>పొడుగు:</label>
           <div className="input-container">
             <input
               type="number"
@@ -304,6 +388,13 @@ function App() {
           {dikpathi && <p><b>దిక్పతి:</b> {dikpathi}</p>}
           {amsha && <p><b>అంశ:</b> {amsha}</p>}
           {yogam && <p><b>యోగం:</b> {yogam}</p>}
+          {yogini && <p><b>యోగినీ:</b> {yogini}</p>}
+          {karanam && <p><b>కరణం:</b> {karanam}</p>}
+          {graham && <p><b>గ్రహం:</b> {graham}</p>}
+          {raasi && <p><b>రాశి :</b> {raasi}</p>}
+          {tatwam && <p><b>తత్వం:</b> {tatwam}</p>}
+          {jati && <p><b>జాతి:</b> {jati}</p>}
+          {kala && <p><b>కళ:</b> {kala}</p>}
         </div>
       </div>
     </div>
